@@ -1,0 +1,24 @@
+{% extends 'app/header.html' %}
+{% load static %}
+
+
+{% block css %}
+<link rel="stylesheet" href="{% static 'css/login.css' %}">
+{% endblock %}
+
+{% block content %}
+<div class="login-page">
+
+    <form action="{% url 'login' %}" method="post" class="login-form">
+
+        {{ form }}
+        {% csrf_token %}
+
+        <button type="submit" class="login-btn">
+            Submit
+        </button>
+
+    </form>
+
+</div>
+{% endblock %}

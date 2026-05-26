@@ -1,0 +1,47 @@
+.hero {
+    height: 90vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: linear-gradient(to right, #f7f9fc, #eef5ff);
+    text-align: center;
+}
+
+.hero-box h1 {
+    font-size: 50px;
+    color: #1b1b1b;
+    animation: fadeDown 1s ease;
+}
+
+.hero-box p {
+    color: #555;
+    margin-top: 10px;
+    margin-bottom: 20px;
+}
+
+.cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px,1fr));
+    gap: 20px;
+    padding: 60px;
+}
+
+.card {
+    background: white;
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.05);
+    transform: translateY(40px);
+    opacity: 0;
+    transition: 0.6s;
+}
+
+.card.show {
+    transform: translateY(0);
+    opacity: 1;
+}
+
+@keyframes fadeDown {
+    from {opacity:0; transform:translateY(-30px);}
+    to {opacity:1; transform:translateY(0);}
+}

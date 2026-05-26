@@ -1,0 +1,61 @@
+{% extends 'app/header.html' %}
+{% load static %}
+
+{% block css %}
+<link rel="stylesheet" href="{% static 'css/help.css' %}">
+{% endblock %}
+
+{% block content %}
+
+<div class="help-page">
+
+    <div class="help-header">
+        <h1>How Can We Help You?</h1>
+        <p>
+            Get support for your banking services and account related queries.
+        </p>
+    </div>
+
+    <div class="help-grid">
+
+        <div class="help-card">
+            <div class="help-icon">💳</div>
+            <h3>Card Support</h3>
+            <p>Block card, activate card and manage ATM issues.</p>
+        </div>
+
+        <div class="help-card">
+            <div class="help-icon">💸</div>
+            <h3>Money Transfer</h3>
+            <p>Issues related to transfers and transactions.</p>
+        </div>
+
+        <div class="help-card">
+            <div class="help-icon">🔐</div>
+            <h3>Account Security</h3>
+            <p>Reset password and secure your account instantly.</p>
+        </div>
+
+        <div class="help-card">
+            <div class="help-icon">🏦</div>
+            <h3>Loan Help</h3>
+            <p>Loan application and EMI related support.</p>
+        </div>
+
+        <div class="help-card">
+            <div class="help-icon">📧</div>
+            <h3>Email Support</h3>
+            <p>support@NovaTrust.com</p>
+        </div>
+
+        <div class="help-card">
+            <div class="help-icon">📞</div>
+            <h3>Customer Care</h3>
+            <p>+91 9876543210</p>
+        </div>
+
+    </div>
+
+</div>
+
+{% endblock %}

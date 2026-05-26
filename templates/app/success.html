@@ -1,0 +1,35 @@
+{% extends 'app/header.html' %}
+{% load static %}
+
+{% block css %}
+<link rel="stylesheet" href="{% static 'css/success.css' %}">
+{% endblock %}
+
+{% block content %}
+
+<div class="success-container">
+
+    <div class="success-card">
+
+        <div class="success-icon">✔</div>
+
+        <h2>Transaction Successful</h2>
+
+        <p>Your money has been transferred successfully.</p>
+
+        <div class="actions">
+
+            <a href="{% url 'Home' %}" class="btn home-btn">
+                Go to Home
+            </a>
+
+            <a href="{% url 'MoneyTransfer' %}" class="btn transfer-btn">
+                New Transfer
+            </a>
+
+        </div>
+
+    </div>
+
+</div>
+{% endblock %}

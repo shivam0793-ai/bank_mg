@@ -1,0 +1,38 @@
+{% extends 'app/header.html' %}
+{% load static %}
+
+{% block css %}
+<link rel="stylesheet" href="{% static 'css/MoneyTransfer.css' %}">
+{% endblock %}
+
+{% block content %}
+
+<div class="transfer-page">
+
+    <div class="transfer-card">
+
+        <div class="transfer-header">
+            <h2>💸 Money Transfer</h2>
+            <p>Send money securely and instantly</p>
+        </div>
+
+        <form action="{% url 'MoneyTransfer' %}" method="post" class="transfer-form">
+            {% csrf_token %}
+
+            <div class="form-body">
+                {{ form }}
+            </div>
+
+            <button type="submit" class="transfer-btn">
+                Send Money
+            </button>
+
+        </form>
+
+    </div>
+
+</div>
+
+<script src="{% static 'js/MoneyTransfer.js' %}"></script>
+
+{% endblock %}

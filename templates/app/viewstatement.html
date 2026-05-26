@@ -1,0 +1,51 @@
+{% extends 'app/header.html' %}
+{% load static %}
+
+{% block css %}
+<link rel="stylesheet" href="{% static 'css/viewstatement.css' %}">
+{% endblock %}
+
+{% block content %}
+
+<div class="table-container">
+
+    <div class="statement-header">
+        <div class="statement-title">Transaction Statement</div>
+        <input type="text" id="searchInput" class="search-box" placeholder="Search sender / receiver...">
+    </div>
+
+    {% if viewstatement %}
+
+    <table class="statement-table" id="statementTable">
+
+        <thead>
+            <tr>
+                <th>Sender</th>
+                <th>Receiver</th>
+                <th>Amount</th>
+            </tr>
+        </thead>
+
+        <tbody>
+            {% for data in viewstatement %}
+            <tr class="table-row">
+                <td>{{ data.sender_acc }}</td>
+                <td>{{ data.reciver_acc }}</td>
+                <td>₹ {{ data.ammount }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+
+    </table>
+
+    {% else %}
+
+    <div class="no-data">No transactions found</div>
+
+    {% endif %}
+
+</div>
+
+<script src="{% static 'js/viewstatement.js' %}"></script>
+
+{% endblock %}

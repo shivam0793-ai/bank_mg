@@ -1,0 +1,278 @@
+body {
+    margin: 0;
+    font-family: 'Inter', sans-serif;
+    background: #f6f8fc;
+}
+
+/* HERO */
+.hero-section {
+    padding: 100px 8%;
+    background: linear-gradient(135deg, #ffffff, #eef4ff);
+    text-align: center;
+}
+
+.hero-content {
+    max-width: 900px;
+    margin: auto;
+}
+
+.hero-content h1 {
+    font-size: 52px;
+    color: #1a1a1a;
+    animation: fadeDown 0.8s ease;
+}
+
+.hero-content p {
+    margin-top: 15px;
+    color: #666;
+    font-size: 16px;
+    line-height: 1.7;
+    animation: fadeUp 1s ease;
+}
+
+/* BUTTONS */
+.hero-actions {
+    margin-top: 30px;
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    flex-wrap: wrap;
+}
+
+.btn {
+    padding: 12px 22px;
+    border-radius: 10px;
+    cursor: pointer;
+    font-weight: 600;
+    text-decoration: none;
+    transition: 0.3s;
+}
+
+.primary {
+    background: #4f7cff;
+    color: white;
+    border: none;
+}
+
+.primary:hover {
+    transform: translateY(-3px);
+    background: #3a66ff;
+}
+
+.outline {
+    border: 1px solid #ddd;
+    color: #333;
+    background: white;
+}
+
+.outline:hover {
+    background: #f1f5ff;
+}
+
+/* SERVICES GRID */
+.service-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 22px;
+    padding: 70px 8%;
+}
+
+/* CARD */
+.service-card {
+    background: white;
+    padding: 25px;
+    border-radius: 16px;
+    text-align: center;
+    box-shadow: 0 8px 25px rgba(0,0,0,0.06);
+    transition: 0.4s;
+    transform: translateY(30px);
+    opacity: 0;
+}
+
+.service-card.show {
+    transform: translateY(0);
+    opacity: 1;
+}
+
+.service-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 15px 35px rgba(0,0,0,0.1);
+}
+
+.service-card h2 {
+    font-size: 18px;
+    color: #1a1a1a;
+}
+
+.service-card p {
+    color: #777;
+    font-size: 14px;
+    margin-top: 10px;
+}
+
+.service-card button {
+    margin-top: 15px;
+    padding: 10px 18px;
+    border: none;
+    border-radius: 8px;
+    background: #eef3ff;
+    color: #2d5bff;
+    font-weight: 600;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.service-card button:hover {
+    background: #2d5bff;
+    color: white;
+}
+
+/* ANIMATIONS */
+@keyframes fadeDown {
+    from { opacity: 0; transform: translateY(-20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fadeUp {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+/* MODAL BASE STYLE */
+.modal-content {
+    border-radius: 16px;
+    border: none;
+    box-shadow: 0 20px 50px rgba(0,0,0,0.12);
+    overflow: hidden;
+    background: #ffffff;
+}
+
+/* HEADER */
+.modal-header {
+    background: #f4f7ff;
+    border-bottom: 1px solid #e8eefc;
+    padding: 18px 20px;
+}
+
+.modal-header h5 {
+    font-size: 18px;
+    font-weight: 700;
+    color: #1a1a1a;
+}
+
+/* CLOSE BUTTON */
+.btn-close {
+    opacity: 0.7;
+}
+
+.btn-close:hover {
+    opacity: 1;
+}
+
+/* BODY */
+.modal-body {
+    padding: 25px;
+    background: #ffffff;
+}
+
+/* FORM WRAPPER */
+.modal-body form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+/* INPUT FIELDS (Django form styling) */
+.modal-body input,
+.modal-body select,
+.modal-body textarea {
+    width: 100%;
+    padding: 12px 14px;
+    border-radius: 10px;
+    border: 1px solid #e3e8f5;
+    background: #fafbff;
+    font-size: 14px;
+    outline: none;
+    transition: 0.3s;
+}
+
+.modal-body input:focus,
+.modal-body select:focus,
+.modal-body textarea:focus {
+    border-color: #4f7cff;
+    background: #ffffff;
+    box-shadow: 0 0 0 3px rgba(79,124,255,0.12);
+}
+
+/* SUBMIT BUTTON */
+.modal-body button[type="submit"] {
+    padding: 12px 18px;
+    border: none;
+    border-radius: 10px;
+    background: linear-gradient(135deg, #4f7cff, #6a8dff);
+    color: white;
+    font-weight: 700;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.modal-body button[type="submit"]:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 25px rgba(79,124,255,0.25);
+}
+
+/* LABELS (if Django renders labels) */
+.modal-body label {
+    font-size: 13px;
+    font-weight: 600;
+    color: #444;
+    margin-bottom: 4px;
+}
+
+/* MODAL ANIMATION */
+.modal.fade .modal-dialog {
+    transform: translateY(20px);
+    transition: all 0.3s ease;
+}
+
+.modal.show .modal-dialog {
+    transform: translateY(0);
+}
+/* FORCE READABLE TEXT EVERYWHERE */
+body {
+    color: #1a1a1a;
+}
+
+/* SERVICE CARDS TEXT FIX */
+.service-card h2,
+.service-card p {
+    color: #1a1a1a;
+}
+
+/* MODAL TEXT FIX */
+.modal-content {
+    background: #ffffff;
+    color: #1a1a1a;
+}
+
+.modal-body {
+    color: #1a1a1a;
+}
+
+/* PROFILE GRID FIX */
+.profile-grid div {
+    color: #1a1a1a;
+}
+
+/* BALANCE TEXT FIX */
+.modal-body span,
+.modal-body div {
+    color: #1a1a1a;
+}
+
+/* BUTTON TEXT SAFETY */
+.card-btn {
+    color: #2d5bff;
+}
+.card-btn:hover {
+    color: #ffffff;
+}

@@ -1,0 +1,56 @@
+{% extends 'app/header.html' %}
+{% load static %}
+
+{% block css %}
+<link rel="stylesheet" href="{% static 'css/index.css' %}">
+{% endblock %}
+
+{% block content %}
+
+<section class="hero">
+
+    <div class="hero-box">
+
+        <h1>Welcome to NovaTrust Bank</h1>
+
+        <p>Secure, Fast & Modern Digital Banking Experience</p>
+
+        {% if request.user.is_authenticated %}
+
+            <a class="btn btn-primary" href="{% url 'Home' %}">Visit Dashboard</a>
+
+        {% else %}
+
+            <a class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#signupModal">Create Account</a>
+
+            <a class="btn btn-outline-primary" data-bs-toggle="modal" data-bs-target="#loginModal">Login</a>
+
+        {% endif %}
+
+    </div>
+
+</section>
+
+<section class="cards">
+
+    <div class="card">💳 Secure Banking</div>
+    <div class="card">⚡ Fast Transfer</div>
+    <div class="card">📊 Smart Analytics</div>
+    <div class="card">📞 24/7 Support</div>
+
+</section>
+
+<script>
+const cards = document.querySelectorAll(".card");
+
+window.addEventListener("scroll", () => {
+    cards.forEach(c => {
+        const pos = c.getBoundingClientRect().top;
+        if(pos < window.innerHeight - 100){
+            c.classList.add("show");
+        }
+    });
+});
+</script>
+
+{% endblock %}

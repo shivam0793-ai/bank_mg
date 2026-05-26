@@ -1,0 +1,89 @@
+{% extends 'app/header.html' %}
+{% load static %}
+
+{% block css %}
+<link rel="stylesheet" href="{% static 'css/create_user.css' %}">
+{% endblock %}
+
+{% block content %}
+<section class="account-page">
+
+    <div class="background-shape shape1"></div>
+    <div class="background-shape shape2"></div>
+
+    <div class="account-container">
+
+        <div class="account-left">
+
+            <span class="mini-tag">
+                DIGITAL BANKING
+            </span>
+
+            <h1>
+                Create Your NovaTrust Bank Account
+            </h1>
+
+            <p>
+                Open your secure digital banking account in just a few minutes.
+                Manage transactions, savings, transfers and payments easily.
+            </p>
+
+            <div class="info-cards">
+
+                <div class="info-box">
+                    <h3>100% Secure</h3>
+                    <span>Protected Banking</span>
+                </div>
+
+                <div class="info-box">
+                    <h3>24/7 Access</h3>
+                    <span>Anytime Anywhere</span>
+                </div>
+
+                <div class="info-box">
+                    <h3>Fast Setup</h3>
+                    <span>Quick Verification</span>
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <div class="account-right">
+
+            <div class="form-box">
+
+                <h2>Create Account</h2>
+
+                <p>
+                    Fill your details carefully
+                </p>
+
+                <form action="{% url 'create_account' %}" method="post">
+
+                    {% csrf_token %}
+
+                    <div class="form-body">
+                        {{ form.as_p }}
+                    </div>
+
+                    <button type="submit" class="create-btn">
+                        Create Account
+                    </button>
+
+                </form>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+<script src="{% static 'js/create_user.js' %}">
+
+</script>
+
+{% endblock %}

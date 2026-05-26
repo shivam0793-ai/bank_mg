@@ -1,0 +1,58 @@
+{% extends 'app/header.html' %}
+{% load static %}
+
+{% block css %}
+<link rel="stylesheet" href="{% static 'css/loan.css' %}">
+{% endblock %}
+
+{% block content %}
+
+<div class="maintenance-page">
+
+    <div class="maintenance-card">
+
+        <div class="icon-area">
+            🏦
+        </div>
+
+        <h1>Loan Services Under Maintenance</h1>
+
+        <p>
+            We are currently upgrading our loan system to provide
+            faster approvals and a better banking experience.
+        </p>
+
+        <div class="status-box">
+            System Upgrade In Progress
+        </div>
+
+        <div class="maintenance-info">
+
+            <div class="info-card">
+                <h3>Personal Loans</h3>
+                <span>Temporarily Unavailable</span>
+            </div>
+
+            <div class="info-card">
+                <h3>Home Loans</h3>
+                <span>Coming Soon</span>
+            </div>
+
+            <div class="info-card">
+                <h3>Business Loans</h3>
+                <span>Under Update</span>
+            </div>
+
+        </div>
+
+        <a href="/" class="back-btn">
+            Back To Home
+        </a>
+
+    </div>
+
+</div>
+
+<script src="{% static 'js/loan.js' %}"></script>
+
+{% endblock %}

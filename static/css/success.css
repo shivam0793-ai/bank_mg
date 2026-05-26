@@ -1,0 +1,101 @@
+/* Page background */
+.success-container{
+    height: 100vh;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    background: linear-gradient(135deg, #0f172a, #1e3a8a);
+}
+
+/* Success card */
+.success-card{
+    width: 420px;
+
+    background: #ffffff;
+
+    padding: 40px;
+
+    border-radius: 18px;
+
+    text-align: center;
+
+    box-shadow: 0 15px 40px rgba(0,0,0,0.25);
+}
+
+/* Icon */
+.success-icon{
+    width: 70px;
+    height: 70px;
+
+    margin: 0 auto 20px;
+
+    background: #22c55e;
+
+    color: white;
+
+    font-size: 32px;
+    font-weight: bold;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    border-radius: 50%;
+}
+
+/* Heading */
+.success-card h2{
+    color: #1e3a8a;
+    margin-bottom: 10px;
+}
+
+/* Text */
+.success-card p{
+    color: #555;
+    font-size: 15px;
+    margin-bottom: 25px;
+}
+
+/* Buttons container */
+.actions{
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+}
+
+/* Buttons */
+.btn{
+    text-decoration: none;
+
+    padding: 10px 18px;
+
+    border-radius: 10px;
+
+    font-size: 14px;
+
+    transition: 0.3s ease;
+
+    display: inline-block;
+}
+
+/* Home button */
+.home-btn{
+    background: #1e3a8a;
+    color: white;
+}
+
+.home-btn:hover{
+    background: #0f2563;
+}
+
+/* Transfer button */
+.transfer-btn{
+    background: #22c55e;
+    color: white;
+}
+
+.transfer-btn:hover{
+    background: #16a34a;
+}
