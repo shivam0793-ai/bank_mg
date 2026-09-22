@@ -12,5 +12,8 @@ urlpatterns=[
     path('depost_money',views.depost_money,name='depost_money'),
     path('withdraw_balance',views.withdraw_balance,name='withdraw_balance'),
     path('loan_view',views.loan_view,name='loan_view'),
-    path('help_view',views.help_view,name='help_view')
+    path('help_view',views.help_view,name='help_view'),
+    path('loginmanually/',views.login_form_view,name='loginmanually')   ,
+    path('api',include('app.API.urls'))
+    
 ]

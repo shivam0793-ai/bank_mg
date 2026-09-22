@@ -4,7 +4,7 @@ from django.contrib.auth.models import User
 # Create your models here.
 
 
-
+from .modelmanager import custome_model_manager
 
 class create_account_model(models.Model):
 
@@ -41,11 +41,14 @@ class create_account_model(models.Model):
     )
 
     created_at = models.DateTimeField(auto_now_add=True)
+    is_active=models.BooleanField(default=True)
+
+    objects=custome_model_manager()
+
 
 
 class Transaction_History_moduel(models.Model):
     sender_acc=models.CharField(max_length=12,unique=True)
     reciver_acc=models.CharField(max_length=12,unique=True)
     ammount=models.DecimalField(max_digits=12,decimal_places=2,default=0.0)
-
 

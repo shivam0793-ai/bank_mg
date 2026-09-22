@@ -4,17 +4,31 @@ from django.contrib.auth.decorators import login_required
 from .models import create_account_model,Transaction_History_moduel
 import random
 from .forms import create_account_form,MoneyTransfer,depost_form,withdraw_balance_form
+from django.http import HttpResponse,JsonResponse
+from django.views.generic import View
+from .models import create_account_model
+from .forms import login_form
+from django.db.models import Sum,Count,Min,Max,Avg
+def inside(fun):
+    def wrapper(request,*args,**kwargs):
+        print("Inside View")
+        opt=create_account_model.objects.is_active().count()
+        print("Output: {}".format(opt))
+        return fun(request,*args,**kwargs)
+    return wrapper
 
 
-
+@inside
 def index(request):
     context = {
         'login_form': login_form(),
         'register': signUp_form()
     }
+    obj=create_account_model.objects.all()
     return render(request, 'app/index.html', context)
 
 @login_required
+@inside
 def Home(request):
     user_data=create_account_model.objects.filter(user=request.user).first()
     balance=0
@@ -31,7 +45,7 @@ def Home(request):
                       'depost_data':depost_form(),
                       'withdraw_balance':withdraw_balance_form()
                     })
-
+@inside
 def deposit(request):
     if request.method=='POST':
         form=depost_form(request.POST)
@@ -41,13 +55,13 @@ def deposit(request):
             user.save()
             return redirect('Home')
 
-
+@inside
 def generate_account_number():
     while True:
         ac_number=str(random.randint(100000000000, 999999999999))
         if not create_account_model.objects.filter(account_number=ac_number).exists():
             return ac_number
-
+@inside
 def create_account_view(request):
     if request.method=='POST':
         form=create_account_form(request.POST)
@@ -62,7 +76,7 @@ def create_account_view(request):
 
 
 
-
+@inside
 def MoneyTransfer_view(request):
 
     if request.method == 'POST':
@@ -86,13 +100,13 @@ def MoneyTransfer_view(request):
         'form': form
     })
 
-
+@inside
 def success(request):
     return render(request,'app/success.html')
 
 
 
-
+@inside
 def viewstatement(request):
     sen=create_account_model.objects.get(user=request.user)
     viewstatement_data=Transaction_History_moduel.objects.filter(sender_acc=sen.account_number)
@@ -144,11 +158,37 @@ def signup(request):
             user.set_password(form.cleaned_data['password1'])
             user.save()
 
-            print("USER CREATED ✔:", user.username)
+            print("USER CREATED :", user.username)
 
             return redirect('login')
 
         else:
-            print("SIGNUP ERROR ❌:", form.errors)
+            print("SIGNUP ERROR :", form.errors)
 
     return redirect('index')
+
+
+
+
+from django.contrib.auth import authenticate, login
+from rest_framework.authtoken.models import Token
+
+def login_form_view(request):
+    form = login_form()
+
+    if request.method == "POST":
+        l_username = request.POST.get("username")
+        l_password = request.POST.get("password")
+
+        user = authenticate(username=l_username, password=l_password)
+
+        if user is not None:
+            login(request, user) 
+            Token.objects.get_or_create(user=user)
+            return render(request,'app/Home.html')
+        else:
+            return render(request, "login.html", {
+                "form": form,
+                "error": "Invalid username or password"
+            })
+    return render(request, "app/login.html", {"form": form})    
